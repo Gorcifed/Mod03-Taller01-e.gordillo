@@ -1,0 +1,1 @@
+SELECT * FROM Perro WHERE peso < 3.0

@@ -39,6 +39,9 @@ def logout():
 @app.route('/admin')
 @login_required
 def admin():
+    if current_user.es_admin != 1:
+       return redirect(url_for("ruta_logueada"))
+
     perrosLassie = guarderia_controller.retornar_perros_Lassie()
     perrosCuidador = guarderia_controller.retornar_perros_Cuidador()
     modelo = { "TotalLassie": perrosLassie, "perros":  perrosCuidador }
